@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="256px" height="256px" viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>256</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M102,14.9914522 C102,6.71190179 95.2877844,8.52651283e-14 87.0043558,8.52651283e-14 L14.9956442,8.52651283e-14 C6.71377859,8.52651283e-14 4.97379915e-14,6.71980328 4.97379915e-14,14.9914522 L4.97379915e-14,36.0085478 C4.97379915e-14,44.2880982 6.71221556,51 14.9956442,51 L87.0043558,51 C95.2862214,51 102,44.2801967 102,36.0085478 L102,14.9914522 Z M17.1393443,25.5 C17.1393443,21.6340068 20.2785647,18.5 24.1428782,18.5 L79.5292529,18.5 C83.3971979,18.5 86.5327869,21.6418733 86.5327869,25.5 L86.5327869,25.5 C86.5327869,29.3659932 83.3935665,32.5 79.5292529,32.5 L24.1428782,32.5 C20.2749332,32.5 17.1393443,29.3581267 17.1393443,25.5 L17.1393443,25.5 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="102" height="51" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M102,14.9914522 C102,6.71190179 95.2877844,7.10542736e-15 87.0043558,7.10542736e-15 L14.9956442,7.10542736e-15 C6.71377859,7.10542736e-15 0,6.71980328 0,14.9914522 L0,36.0085478 C0,44.2880982 6.71221556,51 14.9956442,51 L87.0043558,51 C95.2862214,51 102,44.2801967 102,36.0085478 L102,14.9914522 Z M17.1393443,25.5 C17.1393443,21.6340068 20.2785647,18.5 24.1428782,18.5 L79.5292529,18.5 C83.3971979,18.5 86.5327869,21.6418733 86.5327869,25.5 L86.5327869,25.5 C86.5327869,29.3659932 83.3935665,32.5 79.5292529,32.5 L24.1428782,32.5 C20.2749332,32.5 17.1393443,29.3581267 17.1393443,25.5 L17.1393443,25.5 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="102" height="51" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="256">
+            <g id="Group-2" transform="translate(128.124892, 108.124892) rotate(45.000000) translate(-128.124892, -108.124892) translate(77.124892, 57.124892)">
+                <g id="Group" transform="translate(76.500000, 51.000000) rotate(90.000000) translate(-76.500000, -51.000000) translate(25.500000, 25.500000)">
+                    <use id="Combined-Shape" stroke="#696969" mask="url(#mask-2)" stroke-width="2" fill="#696969" xlink:href="#path-1"></use>
+                    <path d="M28.2536063,18.5 L79.5319233,18.5 C83.3983935,18.5 86.5327869,21.6418733 86.5327869,25.5 L86.5327869,25.5 C86.5327869,29.3659932 83.3977676,32.5 79.5326763,32.5 L42.2005569,32.5" id="Rectangle-2" fill-opacity="0.809669384" fill="#B6B831"></path>
+                </g>
+                <g id="Group" transform="translate(-0.000000, 51.000000)">
+                    <use id="Combined-Shape" stroke="#696969" mask="url(#mask-4)" stroke-width="2" fill="#696969" xlink:href="#path-3"></use>
+                    <rect id="Rectangle-2" fill-opacity="0.809669384" fill="#31B850" x="17.1393443" y="18.5" width="69.3934426" height="14" rx="7"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

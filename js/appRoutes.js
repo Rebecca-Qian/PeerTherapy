@@ -7,5 +7,5 @@ appRoutes.config([
   '$locationProvider',
   function($stateProvider, $locationProvider) {
 
-    $locationProvider.html5Model(true);
+    $locationProvider.html5Mode(true);
   }]);
