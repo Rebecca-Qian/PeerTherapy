@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="192px" height="85px" viewBox="0 0 192 108" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 40.3 (33839) - http://www.bohemiancoding.com/sketch -->
+    <title>virtuheal banner</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M75,10.0000506 C75,4.47717516 70.5191168,4.26325641e-14 65.001813,4.26325641e-14 L9.99818701,4.26325641e-14 C4.4763408,4.26325641e-14 6.39488462e-14,4.48612834 6.39488462e-14,10.0000506 L6.39488462e-14,27.4999494 C6.39488462e-14,33.0228248 4.48088322,37.5 9.99818701,37.5 L65.001813,37.5 C70.5236592,37.5 75,33.0138717 75,27.4999494 L75,10.0000506 Z M12.602459,18.75 C12.602459,15.9073579 14.9107093,13.6029412 17.7521163,13.6029412 L58.4773919,13.6029412 C61.3214691,13.6029412 63.6270492,15.9131421 63.6270492,18.75 L63.6270492,18.75 C63.6270492,21.5926421 61.3187989,23.8970588 58.4773919,23.8970588 L17.7521163,23.8970588 C14.9080391,23.8970588 12.602459,21.5868579 12.602459,18.75 L12.602459,18.75 Z" id="path-1"></path>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="75" height="37.5" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <path d="M75,10.0000506 C75,4.47717516 70.5191168,-1.42108547e-14 65.001813,-1.42108547e-14 L9.99818701,-1.42108547e-14 C4.4763408,-1.42108547e-14 0,4.48612834 0,10.0000506 L0,27.4999494 C0,33.0228248 4.48088322,37.5 9.99818701,37.5 L65.001813,37.5 C70.5236592,37.5 75,33.0138717 75,27.4999494 L75,10.0000506 Z M12.602459,18.75 C12.602459,15.9073579 14.9107093,13.6029412 17.7521163,13.6029412 L58.4773919,13.6029412 C61.3214691,13.6029412 63.6270492,15.9131421 63.6270492,18.75 L63.6270492,18.75 C63.6270492,21.5926421 61.3187989,23.8970588 58.4773919,23.8970588 L17.7521163,23.8970588 C14.9080391,23.8970588 12.602459,21.5868579 12.602459,18.75 L12.602459,18.75 Z" id="path-3"></path>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="75" height="37.5" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="virtuheal-banner">
+            <text id="irtuheal" font-family="Exo-Medium, Exo" font-size="25" font-weight="400" letter-spacing="3" fill="#696969">
+                <tspan x="85" y="100">irtuhea</tspan>
+                <tspan x="184.275" y="100">l</tspan>
+            </text>
+            <g id="Group-2-Copy" transform="translate(53.443281, 54.193281) rotate(45.000000) translate(-53.443281, -54.193281) translate(15.943281, 16.193281)">
+                <g id="Group" transform="translate(56.000000, 37.500000) rotate(90.000000) translate(-56.000000, -37.500000) translate(18.500000, 18.500000)">
+                    <use id="Combined-Shape" stroke="#696969" mask="url(#mask-2)" stroke-width="2" fill="#696969" xlink:href="#path-1"></use>
+                    <path d="M20.7747105,13.6029412 L58.4793554,13.6029412 C61.3223482,13.6029412 63.6270492,15.9131421 63.6270492,18.75 L63.6270492,18.75 C63.6270492,21.5926421 61.3218879,23.8970588 58.479909,23.8970588 L31.0298212,23.8970588" id="Rectangle-2" fill-opacity="0.809669384" fill="#B6B831"></path>
+                </g>
+                <g id="Group" transform="translate(-0.000000, 37.500000)">
+                    <use id="Combined-Shape" stroke="#696969" mask="url(#mask-4)" stroke-width="2" fill="#696969" xlink:href="#path-3"></use>
+                    <rect id="Rectangle-2" fill-opacity="0.809669384" fill="#31B850" x="12.602459" y="13.6029412" width="51.0245902" height="10.2941176" rx="5.14705882"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

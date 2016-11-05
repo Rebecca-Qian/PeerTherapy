@@ -1,0 +1,72 @@
+
+body {
+  margin: 0px;
+}
+
+.header-bar {
+  background-color: #D7E8CB;
+  height: 108px;
+}
+
+object {
+  pointer-events: none;
+}
+
+button:hover {
+  cursor: pointer;
+  cursor: hand;
+}
+
+.lower-bar {
+  background-color: #061405;
+  height: 108px;
+}
+
+#home-patient-block {
+  position: relative;
+  text-align:center;
+  background-color: #1F3C1C;
+  height: 404px;
+}
+
+#patient-button {
+  margin-top: 100px;
+  border: 1px solid #FFFFFF;
+  border-radius: 35px;
+  background-color: transparent;
+  /* Patient: */
+  /* Kind of a hacky solution */
+  padding-left: 20px;
+  font-family: Cabana-Regular;
+  font-size: 35px;
+  color: #FFFFFF;
+  letter-spacing: 11px;
+}
+
+.guide-button {
+  margin-top: 100px;
+  border: 1px solid #477200;
+  border-radius: 35px;
+  background-color: transparent;
+  /* Patient: */
+  /* Kind of a hacky solution */
+  padding-left: 20px;
+  font-family: Cabana-Regular;
+  font-size: 35px;
+  color: #477200;
+  letter-spacing: 11px;
+}
+
+#home-guide-block {
+  position: relative;
+  text-align:center;
+  background-color: #DCDEAF;
+  height:404px;
+}
+
+#guide-intro {
+  position: relative;
+  text-align: center;
+  background-color: #DCDEAF;
+  height:808px;
+}
