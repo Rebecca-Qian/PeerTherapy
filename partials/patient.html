@@ -4,8 +4,8 @@
     What would you like help with?
   </div>
   <ul id='patient-buttons'>
-    <li><button id='depression-button'>No Motivation</button></li>
-    <li><button id='anxiety-button'>Stress</button></li>
+    <li><button class='depression-button' ng-class="{'depression-selected':depression}" ng-click='toggleDepression()'>No Motivation</button></li>
+    <li><button class='anxiety-button' ng-class="{'anxiety-selected':anxiety}" ng-click='toggleAnxiety()'>Stress</button></li>
   </ul>
   <div class='patient-text' style='padding-top:10px'>
     Intensity
