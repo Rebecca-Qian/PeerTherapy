@@ -13,7 +13,8 @@ appRoutes.config([
       })
       .state('patient', {
         url:'/patient',
-        templateUrl: '../partials/patient.html'
+        templateUrl: '../partials/patient.html',
+        controller: 'PatientController'
       })
       .state('guide', {
         url:'/guide',
