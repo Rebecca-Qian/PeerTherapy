@@ -27,34 +27,30 @@ controllers.controller('PatientController', function($scope, $location, PeerServ
 
   $scope.enterTherapy = function() {
     var patientPeer = new Peer('patientTest',
-      { host: 'localhost', port: 8080, path:'/peerjs' });
+      { key: 'cos2lor9r725ipb9' });
 
-    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-
-
-    navigator.getUserMedia({ video: false, audio: true },
-      function (stream) {
-        patientPeer.on('call', function(mediaConnection) {
+    patientPeer.on('call', function(mediaConnection) {
+      navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+      
+      navigator.getUserMedia({ video: false, audio: true },
+        function (stream) {
           mediaConnection.answer(stream);
-          mediaConnection.on('stream', function(stream) {
-            var audio = document.getElementById('streamAudio');
-            audio.src = URL.createObjectURL(stream);
-          });
+        },
+        function () {
+          console.log('Audio not retrieved!');
+        }
+      );
+      mediaConnection.on('stream', function(stream) {
+        $location.url('/virtuheal');
+        $scope.$apply();
+        var audio = document.getElementById('streamAudio');
+        audio.src = URL.createObjectURL(stream);
+      });
 
-          $location.path('/virtuheal');
-          $scope.$apply();
-        });
-      },
-      function () {
-        console.log('Audio not retrieved!');
-      }
-    );
-
-
-    var selectionOptions = {
-      button: $scope.selected,
-      intensity: $scope.intensity
-    };
-
-  }
+      var selectionOptions = {
+        button: $scope.selected,
+        intensity: $scope.intensity
+      };
+    });
+  };
 });
