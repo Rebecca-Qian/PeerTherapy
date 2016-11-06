@@ -118,20 +118,31 @@ button:hover {
   margin-top: 40px;
 }
 
+.patient-button:hover {
+  background-color: #477200;
+  color: white;
+}
+
 #home-patient-block:hover {
   /*background-color: #477200;
   color: white;*/
+  -webkit-transition-delay: 2s; /* Safari */
+  transition-delay: 2s;
   transform: scale(1.05, 1.05);
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: opacity 0.7s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  background-color: white;
 }
 
 #home-guide-block:hover {
 /*  background-color: #477200;
   color: white;*/
+  -webkit-transition-delay: 2s; /* Safari */
+  transition-delay: 2s;
 transform: scale(1.05, 1.05);
 box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: opacity 0.7s ease-in-out;
+  transition: opacity 2s ease-in-out;
+  background-color: white;
 }
 
 .guide-button {
@@ -177,16 +188,19 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 #patient-intro {
   position: relative;
   text-align: center;
-  background-color: #1F3C1C;
-  height:808px;
+  background-color: #f2f2f2;
+  /*background-color: #1F3C1C;*/
+  height:1000px;
 }
 
 .patient-text {
   padding-top: 100px;
   font-family: Cabana-Regular;
-  font-size: 35px;
+  font-size: 60px;
   letter-spacing: 11px;
-  color: #FFFFFF;
+  /*color: #FFFFFF;*/
+  color: #1F3C1C;
+  font-family: 'Exo', sans-serif;
 }
 
 #patient-buttons {
@@ -202,35 +216,99 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 
 .depression-button {
   border-radius: 100%;
-  height: 144px;
-  width: 144px;
+  height: 350px;
+  width:  350px;
   background-color: transparent;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #477200;
   padding-left: 10px;
   padding-bottom: 15px;
   font-family: Cabana-Regular;
   font-size: 30px;
-  color: #FFFFFF;
+  color: #477200;
   letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
+  display: inline-block;
+  float: left;
+}
+
+.depression-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
 }
 
 .anxiety-button {
   border-radius: 100%;
-  height: 144px;
-  width: 144px;
+  height: 300px;
+  width: 300px;
   background-color: transparent;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #477200;
   padding-left: 10px;
   font-family: Cabana-Regular;
   font-size: 30px;
-  color: #FFFFFF;
+  color: #477200;
   letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
 }
 
-.depression-selected, .anxiety-selected {
-  background-color: #FFFFFF;
-  color: #1F3C1C;
+.anxiety-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
 }
+
+.angry-button {
+  border-radius: 100%;
+  height: 200px;
+  width:  200px;
+  background-color: transparent;
+  border: 2px solid #477200;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  font-family: Cabana-Regular;
+  font-size: 30px;
+  color: #477200;
+  letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
+}
+
+.angry-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
+}
+
+.lonely-button {
+  border-radius: 100%;
+  height: 250px;
+  width:  250px;
+  background-color: transparent;
+  border: 2px solid #477200;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  font-family: Cabana-Regular;
+  font-size: 30px;
+  color: #477200;
+  letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
+}
+
+.lonely-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
+}
+
+.depression-selected, .anxiety-selected, .lonely-selected, .angry-selected {
+  background-color: #477200;
+  color: white;
+}
+
+button:focus {outline:0;}
 
 /* Custom input track */
 input[type=range] {

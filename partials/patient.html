@@ -8,11 +8,13 @@
 <!-- Therapy Ball, Dogs on Ice, -->
 <div id='patient-intro'>
   <div class='patient-text'>
-    What do you want to do?
+    I feel...
   </div>
   <ul id='patient-buttons'>
-    <li><button class='depression-button' ng-class="{'depression-selected':selected === 'depression'}" ng-click='toggleButton("depression")'>No Motivation</button></li>
-    <li><button class='anxiety-button' ng-class="{'anxiety-selected':selected === 'anxiety'}" ng-click='toggleButton("anxiety")'>Stress</button></li>
+      <li><button class='angry-button' ng-class="{'angry-selected':selected === 'angry'}" ng-click='toggleButton("angry")'>Angry</button></li>
+    <li><button class='depression-button' ng-class="{'depression-selected':selected === 'depression'}" ng-click='toggleButton("depression")'>Unmotivated</button></li>
+    <li><button class='anxiety-button' ng-class="{'anxiety-selected':selected === 'anxiety'}" ng-click='toggleButton("anxiety")'>Stressed</button></li>
+    <li><button class='lonely-button' ng-class="{'lonely-selected':selected === 'lonely'}" ng-click='toggleButton("lonely")'>Lonely</button></li>
   </ul>
   <div class='patient-text' style='padding-top:10px'>
     Intensity
