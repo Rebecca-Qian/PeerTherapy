@@ -1,106 +1,288 @@
-<!-- Home index html -->
 <!doctype html>
-<html lang='en' ng-app='averyHouseApp'>
+<html>
 <head>
-  <meta charset='UTF-8'>
-  <base href='/'>
-  <title>Peer Therapy</title>
-
-  <!-- CSS Files -->
-  <link rel='stylesheet' href='bower_modules/bootstrap/dist/css/bootstrap.min.css'>
-
-  <!-- Bower files -->
-  <script src='bower_modules/angular/angular.min.js'></script>
-  <script src='bower_modules/angular-ui-router/release/angular-ui-router.min.js'></script>
-  <script src='bower_modules/lodash/lodash.js'></script>
-  <script src='bower_modules/bootstrap/dist/js/bootstrap.min.js'></script>
-  <script src="https://js.leapmotion.com/leap-plugins-0.1.11.js"></script>
-  <script src="https://js.leapmotion.com/leap-0.6.4.js"></script>
-
-  <!-- Angular files -->
-  <script src='js/app.js'></script>
-
+<meta charset=utf-8 >
+<title>Leap Motion Game</title>
+<meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui' >
 </head>
 <body>
-    <p>Lol testing haha </p>
-    <div id=output></div>
-    
-    <script type="text/javascript">
-    function concatData(id, data) {
-      return id + ": " + data + "<br>";
-    }
-    
-    function getFingerName(fingerType) {
-      switch(fingerType) {
-        case 0:
-          return 'Thumb';
-        break;
-    
-        case 1:
-          return 'Index';
-        break;
-    
-        case 2:
-          return 'Middle';
-        break;
-    
-        case 3:
-          return 'Ring';
-        break;
-    
-        case 4:
-          return 'Pinky';
-        break;
-      }
-    }
-    
-    function concatJointPosition(id, position) {
-      return id + ": " + position[0] + ", " + position[1] + ", " + position[2] + "<br>";
-    }
-    
-    
-    var output = document.getElementById('output');
-    var frameString = "", handString = "", fingerString = "";
-    var hand, finger;
-    
-    // Leap.loop uses browser's requestAnimationFrame
-    var options = { enableGestures: true };
-    
-    // Main Leap Loop
-    Leap.loop(options, function(frame) {
-      frameString = concatData("frame_id", frame.id);
-      frameString += concatData("num_hands", frame.hands.length);
-      frameString += concatData("num_fingers", frame.fingers.length);
-      frameString += "<br>";
-    
-      // Showcase some new V2 features
-      for (var i = 0, len = frame.hands.length; i < len; i++) {
-        hand = frame.hands[i];
-        handString = concatData("hand_type", hand.type);
-        handString += concatData("confidence", hand.confidence);
-        handString += concatData("pinch_strength", hand.pinchStrength);
-        handString += concatData("grab_strength", hand.grabStrength);
-    
-        handString += '<br>';
-    
-        // Helpers for thumb, pinky, etc.
-        fingerString = concatJointPosition("finger_thumb_dip", hand.thumb.dipPosition);
-        for (var j = 0, len2 = hand.fingers.length; j < len2; j++) {
-          finger = hand.fingers[j];
-          fingerString += concatData("finger_type", finger.type) + " (" + getFingerName(finger.type) + ") <br>";
-          fingerString += concatJointPosition("finger_dip", finger.dipPosition);
-          fingerString += concatJointPosition("finger_pip", finger.pipPosition);
-          fingerString += concatJointPosition("finger_mcp", finger.mcpPosition);
-          fingerString += "<br>";
-        }
-    
-        frameString += handString;
-        frameString += fingerString;
-      }
-    
-      output.innerHTML = frameString;
-    
+<script src=http://rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
+<script src=http://rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
+<script src=http://rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
+<script src=http://js.leapmotion.com/leap-0.6.4.js ></script>
+<script src="leapcontrol.js"></script>
+
+<script>
+
+  var baseBoneRotation = ( new THREE.Quaternion ).setFromEuler( new THREE.Euler( 0, 0, Math.PI / 2 ) );
+  var armMeshes = [];
+  var boneMeshes = [];
+  var coconutMeshes = [];
+
+  var stats, renderer, scene, camera, controls;
+  var colors = [0xffcc00, 0xffff66, 0x33cc33, 0x3399ff, 0x9999ff, 0xff66ff, 0xff5050, 0xffffff]
+  var index = 0;
+
+  // var radius = 50,
+  //  segments = 16,
+  //  rings = 16;
+  // var sphereMaterial = new THREE.MeshLambertMaterial(
+  // {
+  //  color: 0xCC0000
+  // });
+
+  // var sphere = new THREE.Mesh(
+  //  new Three.SphereGeometry(
+  //    radius,
+  //    segments,
+  //    rings),
+  //  sphereMaterial);
+  // scene.add(sphere);
+
+  init();
+  Leap.loop( {background: true, enableGestures: true}, leapAnimate ).connect();
+
+  function init() {
+
+    var css = document.head.appendChild( document.createElement( 'style' ) );
+    css.innerHTML =
+    `
+
+      body { font: 12pt monospace; margin: 0; overflow: hidden; background-image: url(http://weknowyourdreams.com/images/beach/beach-01.jpg); }
+      h2 { margin: 0 }
+      #aa {text-decoration: none; }
+      #menu { margin: 0 20px; position: absolute; }
+
+    `;
+
+    var menu = document.body.appendChild( document.createElement( 'div' ) );
+    menu.id = 'menu';
+    menu.innerHTML =
+    `
+
+      <div id=info ></div>
+
+    `;
+
+    stats = new Stats();
+    stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; z-index: 100; ';
+    document.body.appendChild( stats.domElement );
+
+    renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    // decides display ratio, scene positioning
+    camera = new THREE.PerspectiveCamera( 30, window.innerWidth / window.innerHeight, 1, 5000 );
+    camera.position.set( -500, 500, 500 );
+
+    controls = new THREE.OrbitControls( camera, renderer.domElement );
+    controls.maxDistance = 1000;
+
+    scene = new THREE.Scene();
+
+// helpers
+    var gridHelper = new THREE.GridHelper( 200, 20 );
+    //scene.add( gridHelper );
+
+    var axisHelper = new THREE.AxisHelper( 200 );
+    //scene.add( axisHelper );
+
+    // initializes bottom plane
+    //var geometry = new THREE.BoxGeometry( 300, 20, 300 );
+    //var material = new THREE.MeshNormalMaterial();
+    //var mesh = new THREE.Mesh( geometry, material );
+    //mesh.position.set( 0, -10, 0 );
+    //scene.add( mesh );
+
+    window.addEventListener( 'resize', onWindowResize, false );
+
+  }
+
+  // window resizing
+  function onWindowResize() {
+
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+
+    renderer.setSize( window.innerWidth, window.innerHeight );
+
+  }
+
+  // applies material to geometric shape, pushes to list of meshes
+  function addMesh( meshes ) {
+
+    var geometry = new THREE.BoxGeometry( 1, 1, 1 );
+    var material = new THREE.MeshNormalMaterial();
+    var mesh = new THREE.Mesh( geometry, material );
+    meshes.push( mesh );
+
+    return mesh;
+
+  }
+
+  // renders hand images
+  function updateMesh( bone, mesh ) {
+
+      mesh.position.fromArray( bone.center() );
+      mesh.setRotationFromMatrix( ( new THREE.Matrix4 ).fromArray( bone.matrix() ) );
+      mesh.quaternion.multiply( baseBoneRotation );
+      mesh.scale.set( bone.width, bone.width, bone.length );
+
+      scene.add( mesh );
+
+  }
+
+  // creates coconut spheres
+  function newCoconut( meshes ) {
+    // var geometry = new THREE.SphereGeometry( 1, 1, 1 );
+    // var material = new THREE.MeshBasicMaterial();
+    // var mesh = new THREE.Mesh( geometry, material );
+    // meshes.push( mesh );
+    var sphere = new THREE.Mesh( geometry, material );
+    sphere.position.set( -20, 200, 40 );
+    sphere.castShadow = true;
+    sphere.receiveShadow = true;
+    sphereControls = new THREE.LeapObjectControls(camera, sphere);
+    return mesh;
+  }
+
+  var geometry = new THREE.SphereGeometry( 40 );
+    var material = new THREE.MeshBasicMaterial({
+      color: 0xFFCC66
     });
-    </script>
+
+  var sphere = new THREE.Mesh( geometry, material );
+    sphere.position.set( 0, 0, 0 );
+    sphere.castShadow = true;
+    sphere.receiveShadow = true;
+    scene.add(sphere);
+    sphereControls = new THREE.LeapObjectControls(camera, sphere);
+
+  function leapAnimate( frame ) {
+
+    if(frame.valid && frame.gestures.length > 0){
+      frame.gestures.forEach(function(gesture){
+        switch (gesture.type){
+          case "circle":
+              console.log("Circle Gesture");
+              break;
+          case "keyTap":
+              console.log("Key Tap Gesture");
+              index = (index > 6? 0 : index + 1);
+              sphere.material.color.setHex(colors[index]);
+              break;
+          case "screenTap":
+              console.log("Screen Tap Gesture");
+              //sphere.material.color = 0xffffff;
+              break;
+          case "swipe":
+              console.log("Swipe Gesture");
+              //Classify swipe as either horizontal or vertical
+              var isHorizontal = Math.abs(gesture.direction[0]) > Math.abs(gesture.direction[1]);
+              //Classify as right-left or up-down
+              if(isHorizontal){
+                  if(gesture.direction[0] > 0){
+                      sphere.translateZ( 5 );
+                      sphere.translateX(5);
+                      if (sphere.position.x > 300) {
+                        sphere.translateX(-10);
+                      }
+                      if (sphere.position.z > 300) {
+                        sphere.translateZ(-10);
+                      }
+                  } else {
+                      sphere.translateZ( -5 );
+                      sphere.translateX(-5);
+                      if (sphere.position.x < -300) {
+                        sphere.translateX(10);
+                      }
+                      if (sphere.position.z < -300) {
+                        sphere.translateZ(10);
+                      }
+                  }
+              } else { //vertical
+                  if(gesture.direction[1] > 0){
+                      sphere.translateY( 5 );
+                      if (sphere.position.y > 250) {
+                        sphere.translateY(-5);
+                      }
+                  } else {
+                      sphere.translateY( -5 );
+                      if (sphere.position.y < -250) {
+                        sphere.translateY(5);
+                      }
+                  }                  
+              }
+          //console.log(swipeDirection)
+
+              //if (frame.hands.hand sphere.translateZ( 5 );
+              break;
+        }
+     });
+    }
+
+      //pointLight = new THREE.PointLight(0xFFFFFF, 1, 100000);
+    var countBones = 0;
+    var countArms = 0;
+
+    armMeshes.forEach( function( item ) { scene.remove( item ) } );
+    boneMeshes.forEach( function( item ) { scene.remove( item ) } );
+
+    for ( var hand of frame.hands ) {
+
+      for ( var finger of hand.fingers ) {
+
+        for ( var bone of finger.bones ) {
+
+          if ( countBones++ === 0 ) { continue; }
+
+          var boneMesh = boneMeshes [ countBones ] || addMesh( boneMeshes );
+          updateMesh( bone, boneMesh );
+
+        }
+
+      }
+
+      var arm = hand.arm;
+      var armMesh = armMeshes [ countArms++ ] || addMesh( armMeshes );
+      updateMesh( arm, armMesh );
+      armMesh.scale.set( arm.width / 4, arm.width / 2, arm.length );
+
+    }
+    //sphereControls.update(frame);
+    renderer.render( scene, camera );
+    controls.update();
+    stats.update();
+
+    for (var i = 0, len = frame.hands.length; i < len; i++) {
+          hand = frame.hands[i];
+          console.log(hand.grabStrength);
+          if (hand.pinchStrength > 0.3) {
+            //sphere.translateZ( 5 );
+            sphere.scale.set(0.7, 0.7, 0.7);
+          } else if (hand.pinchStrength > 0.5) {
+            sphere.scale.set(0.5, 0.5, 0.5);
+          } else if (hand.pinchStrength > 0.8) {
+            sphere.scale.set(0.3, 0.3, 0.3);
+          } else {
+            sphere.scale.set(1, 1, 1);
+          }
+
+          if ((Math.abs(hand.palmPosition[0]) - Math.abs(sphere.position.x) < 20) &&
+            (Math.abs(hand.palmPosition[1]) - Math.abs(sphere.position.y) < 20) &&
+            (Math.abs(hand.palmPosition[2]) - Math.abs(sphere.position.x) < 20) && hand.pinchStrength > 0.3) {
+            //sphere.scale.set(5, 5, 5);
+           sphere.position.setX(hand.palmPosition[0]);
+           sphere.position.setY(hand.palmPosition[1]);
+           sphere.position.setZ(hand.palmPosition[2]-10);
+          } else {
+            sphere.scale.set(1, 1, 1);
+          }
+        }
+
+  }
+
+</script>
 </body>
 </html>
