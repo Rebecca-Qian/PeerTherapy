@@ -1,5 +1,3 @@
-// some parts modified partly from a sketch by Dan Truong (MIT License)
-
 bool heartbeatDetected(int IRSensorPin, int delayVal) {
   static int maxValue = 0;
   static bool isPeak = false;
@@ -75,33 +73,37 @@ void loop () {
   leftValue = String(myInput.substring(value_left, value_right));
   rightValue = String(myInput.substring(value_right, value_end));
   
-  if (leftValue.equals("0")) {
-    analogWrite(leftVibe, 0);
+  if (leftValue.equals("3")) {
+    analogWrite(leftVibe, 255);
   } else if (leftValue.equals("1")) {
     analogWrite(leftVibe, 64);
   } else if (leftValue.equals("2")) {
     analogWrite(leftVibe, 128);
   } else {
-    analogWrite(leftVibe, 255);
+    analogWrite(leftVibe, 0);
   }
   
-  if (rightValue.equals("0")) {
-    analogWrite(rightVibe, 0);
+  if (rightValue.equals("3")) {
+    analogWrite(rightVibe, 255);
   } else if (rightValue.equals("1")) {
     analogWrite(rightVibe, 64);
   } else if (rightValue.equals("2")) {
     analogWrite(rightVibe, 128);
   } else {
-    analogWrite(rightVibe, 255);
+    analogWrite(rightVibe, 0);
   }
   
   if (heartbeatDetected(analogPin, delayMsec)) {
     heartRateBPM = 60000 / beatMsec;
     digitalWrite(hrLedPin, 1);
+
+    if (heartRateBPM > 160) {
+      heartRateBPM = 160;
+    } else if (heartRateBPM < 75) {
+      heartRateBPM = 75;
+    }
     
     Serial.print("HR: ");
-    Serial.print(beatMsec);
-    Serial.print(", ");
     Serial.println(heartRateBPM);
     
     beatMsec = 0;
@@ -111,6 +113,5 @@ void loop () {
   
   delay(delayMsec);
   beatMsec += delayMsec;
-  myInput = "";
   stringComplete = false;
 }
