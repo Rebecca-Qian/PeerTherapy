@@ -11,7 +11,7 @@ ul {
   height: 108px;
   position: absolute;
   z-index: 100;
-  font-family: 'Exo', sans-serif;
+  /*font-family: 'Exo', sans-serif;*/
 }
 
 object {
@@ -27,7 +27,12 @@ button:hover {
   background-color: #0A2209;
   height: 108px;
   margin-bottom:0px;
+  color: white;
 }
+
+/*#virtuheal-logo {
+  height: 900px;
+}*/
 
 #home-patient-block {
   position: inline-block;
@@ -92,20 +97,31 @@ button:hover {
   font-family: 'Exo', sans-serif;
 }
 
+.license {
+  color: white;
+  z-index: 100;
+  font-size: 20px;
+  /*font-family: Verdana;*/
+  padding-top: 2%;
+  position: relative;
+  text-align: center;
+  font-family: 'Exo', sans-serif;
+}
+
 .icons {
   margin-top: 100px;
   display: inline;
   /*position: relative;*/
   margin: auto;
   /*float: left;*/
-  height: 100px;
+  height: 200px;
   width: 100%;
   color: #477200;
 }
 
 .patient-button {
   /*border: 1px solid #FFFFFF;*/
-  /*border-radius: 35px;*/
+  border-radius: 5px;
   background-color: transparent;
   /* Patient: */
   /* Kind of a hacky solution */
@@ -119,7 +135,7 @@ button:hover {
   margin-top: 40px;
 }
 
-.patient-button:hover {
+.start-button:hover {
   background-color: #477200;
   color: white;
 }
@@ -182,8 +198,21 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 #guide-intro {
   position: relative;
   text-align: center;
-  background-color: #DCDEAF;
+  background-color: #f2f2f2;
+  /*background-color: #DCDEAF;*/
   height:808px;
+}
+
+.guide {
+  text-align: center;
+  font-size: 30px;
+  width: 60%;
+  padding-top: 10%;
+  position: relative;
+  display: inline-block;
+  margin: auto;
+  font-family: 'Exo', sans-serif;
+  margin-bottom: 10%;
 }
 
 #patient-intro {
@@ -220,7 +249,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   height: 350px;
   width:  350px;
   background-color: transparent;
-  border: 2px solid #477200;
+  border: 3px solid #477200;
   padding-left: 10px;
   padding-bottom: 15px;
   font-family: Cabana-Regular;
@@ -244,7 +273,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   height: 300px;
   width: 300px;
   background-color: transparent;
-  border: 2px solid #477200;
+  border: 3px solid #477200;
   padding-left: 10px;
   font-family: Cabana-Regular;
   font-size: 30px;
@@ -265,7 +294,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   height: 200px;
   width:  200px;
   background-color: transparent;
-  border: 2px solid #477200;
+  border: 3px solid #477200;
   padding-left: 10px;
   padding-bottom: 15px;
   font-family: Cabana-Regular;
@@ -287,7 +316,7 @@ box-shadow: 0 5px 15px rgba(0,0,0,0.3);
   height: 250px;
   width:  250px;
   background-color: transparent;
-  border: 2px solid #477200;
+  border: 3px solid #477200;
   padding-left: 10px;
   padding-bottom: 15px;
   font-family: Cabana-Regular;
