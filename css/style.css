@@ -33,14 +33,16 @@ button:hover {
   text-align: center;
   /*background-color: #1F3C1C;*/
   /*height: 404px;*/
-  height: 400px;
-  width: 35%;
+  height: 350px;
+  width: 34%;
   float: left;
   margin-left: 10%;
   /*margin-right: 5%;*/
   margin-top: 2%;
   border: 0px solid green;
   border-radius: 5px;
+  text-decoration: none;
+  padding-top: 100px;
 }
 
 .home-info {
@@ -84,29 +86,25 @@ button:hover {
   height: 900px;
   z-index: 100;
   background-color: #f2f2f2;
-  font-size: 100px;
-  padding-top: 125px;
+  font-size: 80px;
+  padding-top: 110px;
   font-family: 'Exo', sans-serif;
 }
 
-.patient-button {
+.icons {
   margin-top: 100px;
-  border: 1px solid #FFFFFF;
-  border-radius: 35px;
-  background-color: transparent;
-  /* Patient: */
-  /* Kind of a hacky solution */
-  padding-left: 20px;
-  font-family: Cabana-Regular;
-  font-size: 35px;
-  color: #FFFFFF;
-  letter-spacing: 11px;
+  display: inline;
+  /*position: relative;*/
+  margin: auto;
+  /*float: left;*/
+  height: 100px;
+  width: 100%;
+  color: #477200;
 }
 
-.guide-button {
-  margin-top: 100px;
-  border: 1px solid #477200;
-  border-radius: 35px;
+.patient-button {
+  /*border: 1px solid #FFFFFF;*/
+  /*border-radius: 35px;*/
   background-color: transparent;
   /* Patient: */
   /* Kind of a hacky solution */
@@ -115,13 +113,49 @@ button:hover {
   font-size: 35px;
   color: #477200;
   letter-spacing: 11px;
+  text-decoration: none;
+  font-family: 'Exo', sans-serif;
+  margin-top: 40px;
+}
+
+#home-patient-block:hover {
+  /*background-color: #477200;
+  color: white;*/
+  transform: scale(1.05, 1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: opacity 0.7s ease-in-out;
+}
+
+#home-guide-block:hover {
+/*  background-color: #477200;
+  color: white;*/
+transform: scale(1.05, 1.05);
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: opacity 0.7s ease-in-out;
+}
+
+.guide-button {
+  /*margin-top: 100px;*/
+  /*border: 1px solid #477200;*/
+  /*border-radius: 35px;*/
+  background-color: transparent;
+  /* Patient: */
+  /* Kind of a hacky solution */
+  padding-left: 20px;
+  font-family: Cabana-Regular;
+  font-size: 35px;
+  color: #477200;
+  letter-spacing: 11px;
+  text-decoration: none;
+  font-family: 'Exo', sans-serif;
+  margin-top: 40px;
 }
 
 #home-guide-block {
   position: inline-block;
   text-align:center;
   /*background-color: #DCDEAF;*/
-  height:400px;
+  height:350px;
   width: 35%;
   margin-left: 10%;
   margin-right: 10%;
@@ -129,6 +163,8 @@ button:hover {
   float: left;
   border-radius: 5px;
   border: 0px solid green;
+  text-decoration: none;
+  padding-top: 100px;
 }
 
 #guide-intro {
