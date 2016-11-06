@@ -11,6 +11,7 @@ ul {
   height: 108px;
   position: absolute;
   z-index: 100;
+  font-family: 'Exo', sans-serif;
 }
 
 object {
