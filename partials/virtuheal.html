@@ -3,7 +3,7 @@
   var armMeshes = [];
   var boneMeshes = [];
   var coconutMeshes = [];
-  var stats, renderer, scene, camera, controls;
+  var renderer, scene, camera, controls;
   var colors = [0xffcc00, 0xffff66, 0x33cc33, 0x3399ff, 0x9999ff, 0xff66ff, 0xff5050, 0xffffff]
   var index = 0;
   // var radius = 50,
@@ -37,9 +37,9 @@
     `
       <div id=info ></div>
     `;
-    stats = new Stats();
-    stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; z-index: 100; ';
-    document.body.appendChild( stats.domElement );
+    // stats = new Stats();
+    // stats.domElement.style.cssText = 'position: absolute; right: 0; top: 0; z-index: 100; ';
+    // document.body.appendChild( stats.domElement );
     renderer = new THREE.WebGLRenderer( { alpha: 1, antialias: true, clearColor: 0xffffff }  );
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
@@ -188,7 +188,7 @@
     //sphereControls.update(frame);
     renderer.render( scene, camera );
     controls.update();
-    stats.update();
+    //stats.update();
     for (var i = 0, len = frame.hands.length; i < len; i++) {
           hand = frame.hands[i];
           console.log(hand.grabStrength);
