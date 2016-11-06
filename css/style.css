@@ -3,7 +3,6 @@ body {
   margin: 0px;
 }
 
-
 ul {
   -webkit-padding-start:0px;
 }
@@ -24,6 +23,7 @@ button:hover {
 .lower-bar {
   background-color: #0A2209;
   height: 108px;
+  margin-bottom:0px;
 }
 
 #home-patient-block {
