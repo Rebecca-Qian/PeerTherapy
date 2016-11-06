@@ -3,7 +3,9 @@
 var app = angular.module('peerTherapyApp', [
   'ui.router',
   'appRoutes',
-  'PatientCtrl'
+  'PatientCtrl',
+  'GuideCtrl',
+  'PeerService'
   ])
   // Global access for lodash in angular modules
   .constant('_', window._);

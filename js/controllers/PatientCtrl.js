@@ -1,8 +1,8 @@
 'use strict';
 
-var controllers = angular.module('PatientCtrl', []);
+var controllers = angular.module('PatientCtrl', ['PeerService']);
 
-controllers.controller('PatientController', function($scope) {
+controllers.controller('PatientController', function($scope, $location, PeerServ) {
 
   $scope.intensity = 0;
   $scope.selected = null;
@@ -24,4 +24,37 @@ controllers.controller('PatientController', function($scope) {
       $scope.intensity = depressionValues[buttonDesc];
     }
   };
+
+  $scope.enterTherapy = function() {
+    var patientPeer = new Peer('patientTest',
+      { host: 'localhost', port: 8080, path:'/peerjs' });
+
+    navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+
+    navigator.getUserMedia({ video: false, audio: true },
+      function (stream) {
+        patientPeer.on('call', function(mediaConnection) {
+          mediaConnection.answer(stream);
+          mediaConnection.on('stream', function(stream) {
+            var audio = document.getElementById('streamAudio');
+            audio.src = URL.createObjectURL(stream);
+          });
+
+          $location.path('/virtuheal');
+          $scope.$apply();
+        });
+      },
+      function () {
+        console.log('Audio not retrieved!');
+      }
+    );
+
+
+    var selectionOptions = {
+      button: $scope.selected,
+      intensity: $scope.intensity
+    };
+
+  }
 });
