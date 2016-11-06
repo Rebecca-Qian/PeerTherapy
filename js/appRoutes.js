@@ -18,7 +18,8 @@ appRoutes.config([
       })
       .state('guide', {
         url:'/guide',
-        templateUrl:'../partials/guide.html'
+        templateUrl:'../partials/guide.html',
+        controller: 'GuideController'
       })
       .state('virtuheal', {
         url:'/virtuheal',

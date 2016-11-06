@@ -12,9 +12,10 @@ app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/'));
 
-require('./backend/routes')(app);
 
-app.listen(port);
+const server = app.listen(port);
+require('./peer/config')(app, server);
+require('./backend/routes')(app);
 
 console.log(`Listen on port ${port}`);
 

@@ -8,6 +8,6 @@
         "body-parser": "1.15.2",
         "lodash": "4.14.1",
         "express": "4.14.0",
-        "peerjs": "0.3.14"
+        "peer": "0.2.8"
     }
 }
