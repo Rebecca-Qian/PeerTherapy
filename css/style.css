@@ -158,36 +158,22 @@ input[type=range]::-ms-track {
   color: transparent;
 }
 
-/* Input track custom attributes here */
-/*Chrome*/
-@media screen and (-webkit-min-device-pixel-ratio:0) {
-    input[type='range'] {
-      margin-top: 30px;
-      border-radius: 25px;
-      overflow: hidden;
-      width:350px;
-      -webkit-appearance: none;
-      background-color: #FFFFFF;
-    }
-    
-    input[type='range']::-webkit-slider-runnable-track {
-      height: 30px;
-      -webkit-appearance: none;
-      color: #9BDFAE;
-    }
-    
-    input[type='range']::-webkit-slider-thumb {
-      width: 30px;
-      -webkit-appearance: none;
-      height: 30px;
-      border-radius:100%;
-
-      cursor: ew-resize;
-      background: #9BDFAE;
-      box-shadow: -350px 0 0 335px #9BDFAE;
-    }
-
+progress[value] {
+  margin-top: 30px;
+  border-radius: 25px;
+  overflow: hidden;
+  width:350px;
+  height: 30px;
+  -webkit-appearance: none;
+  background-color: #FFFFFF;
 }
 
+progress[value]::-webkit-progress-bar {
+  background-color: #FFFFFF;
+}
 
+progress[value]::-webkit-progress-value {
+  border-radius: 25px;
+  background-color: #9BDFAE;
+}
 

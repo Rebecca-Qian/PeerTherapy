@@ -3,32 +3,25 @@
 var controllers = angular.module('PatientCtrl', []);
 
 controllers.controller('PatientController', function($scope) {
-  $scope.depression = false;
-  $scope.anxiety = false;
 
-  $scope.toggleDepression = function() {
-    if ($scope.depression) {
-      $scope.depression = false;
-    }
-    else if ($scope.anxiety) {
-      $scope.depression = true;
-      $scope.anxiety = false;
-    }
-    else {
-      $scope.depression = true;
-    }
+  $scope.intensity = 0;
+  $scope.selected = null;
+
+  // Intensity Values
+  var depressionValues = {
+    depression: 2,
+    anxiety: 4
   };
 
-  $scope.toggleAnxiety = function() {
-    if ($scope.depression) {
-      $scope.depression = false;
-      $scope.anxiety = true;
+  $scope.toggleButton = function(buttonDesc) {
+    var prevSelected = $scope.selected;
+    if (!_.isNil($scope.selected)) {
+      $scope.selected = null;
+      $scope.intensity = 0;
     }
-    else if ($scope.anxiety) {
-      $scope.anxiety = false;
-    }
-    else {
-      $scope.anxiety = true;
+    if (!_.isEqual(buttonDesc, prevSelected)) {
+      $scope.selected = buttonDesc;
+      $scope.intensity = depressionValues[buttonDesc];
     }
   };
 });
