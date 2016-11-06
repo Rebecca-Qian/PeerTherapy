@@ -11,6 +11,11 @@ appRoutes.config([
         url: '/',
         templateUrl: '../partials/home.html'
       })
+      .state('navigation', {
+        url:'/navigation',
+        templateUrl: '../partials/navigation.html',
+       // controller: 'PatientController'
+      })
       .state('patient', {
         url:'/patient',
         templateUrl: '../partials/patient.html',

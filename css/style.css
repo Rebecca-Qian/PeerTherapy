@@ -7,8 +7,11 @@ ul {
   -webkit-padding-start:0px;
 }
 .header-bar {
-  background-color: #D7E8CB;
+  /* background-color: #D7E8CB;*/
   height: 108px;
+  position: absolute;
+  z-index: 100;
+  font-family: 'Exo', sans-serif;
 }
 
 object {
@@ -27,30 +30,82 @@ button:hover {
 }
 
 #home-patient-block {
+  position: inline-block;
+  text-align: center;
+  /*background-color: #1F3C1C;*/
+  /*height: 404px;*/
+  height: 350px;
+  width: 34%;
+  float: left;
+  margin-left: 10%;
+  /*margin-right: 5%;*/
+  margin-top: 2%;
+  border: 0px solid green;
+  border-radius: 5px;
+  text-decoration: none;
+  padding-top: 100px;
+}
+
+.home-info {
+  background-image: url("../nature.jpg");
   position: relative;
-  text-align:center;
-  background-color: #1F3C1C;
-  height: 404px;
+  height: 700px;
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
+  text-align: center;
+  font-size: 100px;
+  font-family: 'Exo', sans-serif;
+  color: white;
+  padding-top: 15%;
+}
+
+.highlight {
+  color: #477200;
+}
+
+.button {
+  font-size: 40px !important; 
+  border: 3px solid #477200 !important;
+  border-radius: 15px !important;
+  padding: 20px;
+  width: 20% !important;
+  position: relative !important;
+  margin: auto !important;
+  color: white !important;
+  margin-top: 100px !important;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #477200;
+}
+
+.navigation {
+  text-align: center;
+  color: #1F3C1C;
+  height: 900px;
+  z-index: 100;
+  background-color: #f2f2f2;
+  font-size: 80px;
+  padding-top: 110px;
+  font-family: 'Exo', sans-serif;
+}
+
+.icons {
+  margin-top: 100px;
+  display: inline;
+  /*position: relative;*/
+  margin: auto;
+  /*float: left;*/
+  height: 100px;
+  width: 100%;
+  color: #477200;
 }
 
 .patient-button {
-  margin-top: 100px;
-  border: 1px solid #FFFFFF;
-  border-radius: 35px;
-  background-color: transparent;
-  /* Patient: */
-  /* Kind of a hacky solution */
-  padding-left: 20px;
-  font-family: Cabana-Regular;
-  font-size: 35px;
-  color: #FFFFFF;
-  letter-spacing: 11px;
-}
-
-.guide-button {
-  margin-top: 100px;
-  border: 1px solid #477200;
-  border-radius: 35px;
+  /*border: 1px solid #FFFFFF;*/
+  /*border-radius: 35px;*/
   background-color: transparent;
   /* Patient: */
   /* Kind of a hacky solution */
@@ -59,13 +114,69 @@ button:hover {
   font-size: 35px;
   color: #477200;
   letter-spacing: 11px;
+  text-decoration: none;
+  font-family: 'Exo', sans-serif;
+  margin-top: 40px;
+}
+
+.patient-button:hover {
+  background-color: #477200;
+  color: white;
+}
+
+#home-patient-block:hover {
+  /*background-color: #477200;
+  color: white;*/
+  -webkit-transition-delay: 2s; /* Safari */
+  transition-delay: 2s;
+  transform: scale(1.05, 1.05);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: opacity 2s ease-in-out;
+  background-color: white;
+}
+
+#home-guide-block:hover {
+/*  background-color: #477200;
+  color: white;*/
+  -webkit-transition-delay: 2s; /* Safari */
+  transition-delay: 2s;
+transform: scale(1.05, 1.05);
+box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  transition: opacity 2s ease-in-out;
+  background-color: white;
+}
+
+.guide-button {
+  /*margin-top: 100px;*/
+  /*border: 1px solid #477200;*/
+  /*border-radius: 35px;*/
+  background-color: transparent;
+  /* Patient: */
+  /* Kind of a hacky solution */
+  padding-left: 20px;
+  font-family: Cabana-Regular;
+  font-size: 35px;
+  color: #477200;
+  letter-spacing: 11px;
+  text-decoration: none;
+  font-family: 'Exo', sans-serif;
+  margin-top: 40px;
 }
 
 #home-guide-block {
-  position: relative;
+  position: inline-block;
   text-align:center;
-  background-color: #DCDEAF;
-  height:404px;
+  /*background-color: #DCDEAF;*/
+  height:350px;
+  width: 35%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  float: left;
+  border-radius: 5px;
+  border: 0px solid green;
+  text-decoration: none;
+  padding-top: 100px;
 }
 
 #guide-intro {
@@ -78,16 +189,19 @@ button:hover {
 #patient-intro {
   position: relative;
   text-align: center;
-  background-color: #1F3C1C;
-  height:808px;
+  background-color: #f2f2f2;
+  /*background-color: #1F3C1C;*/
+  height:1000px;
 }
 
 .patient-text {
   padding-top: 100px;
   font-family: Cabana-Regular;
-  font-size: 35px;
+  font-size: 60px;
   letter-spacing: 11px;
-  color: #FFFFFF;
+  /*color: #FFFFFF;*/
+  color: #1F3C1C;
+  font-family: 'Exo', sans-serif;
 }
 
 #patient-buttons {
@@ -103,35 +217,99 @@ button:hover {
 
 .depression-button {
   border-radius: 100%;
-  height: 144px;
-  width: 144px;
+  height: 350px;
+  width:  350px;
   background-color: transparent;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #477200;
   padding-left: 10px;
   padding-bottom: 15px;
   font-family: Cabana-Regular;
   font-size: 30px;
-  color: #FFFFFF;
+  color: #477200;
   letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
+  display: inline-block;
+  float: left;
+}
+
+.depression-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
 }
 
 .anxiety-button {
   border-radius: 100%;
-  height: 144px;
-  width: 144px;
+  height: 300px;
+  width: 300px;
   background-color: transparent;
-  border: 2px solid #FFFFFF;
+  border: 2px solid #477200;
   padding-left: 10px;
   font-family: Cabana-Regular;
   font-size: 30px;
-  color: #FFFFFF;
+  color: #477200;
   letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
 }
 
-.depression-selected, .anxiety-selected {
-  background-color: #FFFFFF;
-  color: #1F3C1C;
+.anxiety-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
 }
+
+.angry-button {
+  border-radius: 100%;
+  height: 200px;
+  width:  200px;
+  background-color: transparent;
+  border: 2px solid #477200;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  font-family: Cabana-Regular;
+  font-size: 30px;
+  color: #477200;
+  letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
+}
+
+.angry-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
+}
+
+.lonely-button {
+  border-radius: 100%;
+  height: 250px;
+  width:  250px;
+  background-color: transparent;
+  border: 2px solid #477200;
+  padding-left: 10px;
+  padding-bottom: 15px;
+  font-family: Cabana-Regular;
+  font-size: 30px;
+  color: #477200;
+  letter-spacing:6px;
+  font-family: 'Exo', sans-serif;
+}
+
+.lonely-button:hover {
+  background-color: #477200;
+  /*transition-delay: 2s;*/
+  color: white;
+  transform: scale(1.2, 1.2);
+}
+
+.depression-selected, .anxiety-selected, .lonely-selected, .angry-selected {
+  background-color: #477200;
+  color: white;
+}
+
+button:focus {outline:0;}
 
 /* Custom input track */
 input[type=range] {
