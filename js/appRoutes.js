@@ -13,11 +13,16 @@ appRoutes.config([
       })
       .state('patient', {
         url:'/patient',
-        templateUrl: '../partials/patient.html'
+        templateUrl: '../partials/patient.html',
+        controller: 'PatientController'
       })
       .state('guide', {
         url:'/guide',
         templateUrl:'../partials/guide.html'
+      })
+      .state('virtuheal', {
+        url:'/virtuheal',
+        templateUrl:'../partials/virtuheal.html'
       });
 
     $locationProvider.html5Mode(true);

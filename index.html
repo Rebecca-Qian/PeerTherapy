@@ -1,21 +1,28 @@
-<!-- Home index html -->
 <!doctype html>
 <html lang='en' ng-app='peerTherapyApp'>
 <head>
-  <meta charset='UTF-8'>
+  <meta charset=utf-8 >
+  <meta name=viewport content='width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui' >
   <base href='/'>
-  <title>Peer Therapy</title>
 
+  <!-- LeapMotion stuff  -->
+  <script src=http://rawgit.com/mrdoob/three.js/dev/build/three.min.js ></script>
+  <script src=http://rawgit.com/mrdoob/three.js/dev/examples/js/controls/OrbitControls.js ></script>
+  <script src=http://rawgit.com/mrdoob/three.js/dev/examples/js/libs/stats.min.js ></script>
+  <script src=http://js.leapmotion.com/leap-0.6.4.js ></script>
+  <script src="leapcontrol.js"></script>
   <!-- CSS Files -->
   <link rel='stylesheet' href='css/style.css'>
-<!--   <link rel='stylesheet' href='bower_modules/bootstrap/dist/css/bootstrap.min.css'> -->
 
   <!-- Bower files -->
+  <script src='bower_modules/jquery/dist/jquery.min.js'></script>
   <script src='bower_modules/angular/angular.min.js'></script>
   <script src='bower_modules/angular-ui-router/release/angular-ui-router.min.js'></script>
   <script src='bower_modules/lodash/lodash.js'></script>
-<!--   <script src='bower_modules/bootstrap/dist/js/bootstrap.min.js'></script>
- -->
+
+  <!-- Controller Files -->
+  <script src='js/controllers/PatientCtrl.js'></script>
+
   <!-- Angular files -->
   <script src='js/appRoutes.js'></script>
   <script src='js/app.js'></script>
@@ -23,7 +30,5 @@
 </head>
 <body>
   <div ui-view></div>
-  <div class='lower-bar'>
-  </div>
 </body>
 </html>

@@ -4,19 +4,24 @@
       <object id='virtulheal-logo' data='img/virtuhealbanner.svg' type='image/svg+xml'></object>
     </a>
   </div>
+
 <!-- Therapy Ball, Dogs on Ice, -->
 <div id='patient-intro'>
   <div class='patient-text'>
-    What would you like help with?
+    What do you want to do?
   </div>
   <ul id='patient-buttons'>
-    <li><button id='depression-button'>No Motivation</button></li>
-    <li><button id='anxiety-button'>Stress</button></li>
+    <li><button class='depression-button' ng-class="{'depression-selected':selected === 'depression'}" ng-click='toggleButton("depression")'>No Motivation</button></li>
+    <li><button class='anxiety-button' ng-class="{'anxiety-selected':selected === 'anxiety'}" ng-click='toggleButton("anxiety")'>Stress</button></li>
   </ul>
   <div class='patient-text' style='padding-top:10px'>
     Intensity
   </div>
-  <input type='range' min='0' max='25' value='0'>
+  <!-- Instead, just display an intensity value for each scenario.-->
+  <progress min='0' max='4' ng-value='intensity'></progress>
   <br>
   <button class='patient-button'>Start</button>
+</div>
+
+<div class='lower-bar'>
 </div>
