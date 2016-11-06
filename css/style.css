@@ -7,8 +7,10 @@ ul {
   -webkit-padding-start:0px;
 }
 .header-bar {
-  background-color: #D7E8CB;
+  /* background-color: #D7E8CB;*/
   height: 108px;
+  position: absolute;
+  z-index: 100;
 }
 
 object {
@@ -27,10 +29,64 @@ button:hover {
 }
 
 #home-patient-block {
+  position: inline-block;
+  text-align: center;
+  /*background-color: #1F3C1C;*/
+  /*height: 404px;*/
+  height: 400px;
+  width: 35%;
+  float: left;
+  margin-left: 10%;
+  /*margin-right: 5%;*/
+  margin-top: 2%;
+  border: 0px solid green;
+  border-radius: 5px;
+}
+
+.home-info {
+  background-image: url("../nature.jpg");
   position: relative;
-  text-align:center;
-  background-color: #1F3C1C;
-  height: 404px;
+  height: 700px;
+  background-size:     cover;                      /* <------ */
+  background-repeat:   no-repeat;
+  background-position: center center; 
+  text-align: center;
+  font-size: 100px;
+  font-family: 'Exo', sans-serif;
+  color: white;
+  padding-top: 15%;
+}
+
+.highlight {
+  color: #477200;
+}
+
+.button {
+  font-size: 40px !important; 
+  border: 3px solid #477200 !important;
+  border-radius: 15px !important;
+  padding: 20px;
+  width: 20% !important;
+  position: relative !important;
+  margin: auto !important;
+  color: white !important;
+  margin-top: 100px !important;
+  text-decoration: none;
+}
+
+.button:hover {
+  background-color: #477200;
+}
+
+.navigation {
+  text-align: center;
+  color: #1F3C1C;
+  height: 900px;
+  z-index: 100;
+  background-color: #f2f2f2;
+  font-size: 100px;
+  padding-top: 125px;
+  font-family: 'Exo', sans-serif;
 }
 
 .patient-button {
@@ -62,10 +118,17 @@ button:hover {
 }
 
 #home-guide-block {
-  position: relative;
+  position: inline-block;
   text-align:center;
-  background-color: #DCDEAF;
-  height:404px;
+  /*background-color: #DCDEAF;*/
+  height:400px;
+  width: 35%;
+  margin-left: 10%;
+  margin-right: 10%;
+  margin-top: 2%;
+  float: left;
+  border-radius: 5px;
+  border: 0px solid green;
 }
 
 #guide-intro {
